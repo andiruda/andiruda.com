@@ -9,7 +9,7 @@
 			<div class="story" style="position:absolute!important;bottom:50px;left:15%;">
 				<div>
 					<img src="images/ar-home-banner.png" />
-					<h2 class="greenP" style="position:absolute;top:45px;left:146px;"><em>Web Developer</em></h2>					
+					<h2 class="greenP" style="position:absolute;top:45px;left:146px;"><em>Web Developer</em></h2>
 				</div>
 			</div>
 		</section>
@@ -19,35 +19,34 @@
 			<div class="story">
 				<div style="margin-top:20%;">
 					<img src="images/ar-bio-family.png" style="position:absolute;right:5px;" />
-					
+
 					<h2>About AR</h2>
 					<p>
-						<span class="question"><strong>Q:</strong>Who am I?</span><br />
-						<span class="answer"><strong>A:</strong>
-							My name is Andrew (Andi) Ruda.  I am a web deloper that enjoys open source, cloning git repositories, Ubuntu's new Raring Ringtail, Playing around with <a href="http://nodejs.org" target="_blank">Node</a>, surfing, playing with my boys, spending time with my wife, and many recrational activities.  My idea of fun is unpacking JSON Bags from API calls, schooling everyone around me at Star Wars trivia (seriously, I haven't been beat) and learning a new scripting language!
-						</span><br />
-						<span class="question"><strong>Q:</strong>How old am I?</span><br />
-						<span class="answer"><strong>A:</strong>
-							28yrs Young
+						<span class="question">Who am I?</span><br />
+						<span class="answer">
+							My name is Andrew (Andi) Ruda.  I am an experienced web application developer that is comfortable spinning up auto-scaling
+                            cloud hosted solutions for tiny applets all the way to enterprise level SaaS applications.  I have over 10 years experience
+                            developing web based applications on varying tech stacks.  <br>
+                            In the past decade I have been: a freelancer, a team member, a manager, and a director.
 						</span><br /><br />
-						<span class="question"><strong>Q:</strong>What skills do I possess?</span><br />
-						<span class="answer"><strong>A:</strong>
+						<span class="question">What can I do?</span><br />
+						<span class="answer">
 							Star Wars EU Facts<br />
 							Tolkienlore<br />
 							Fast Learner/Easy To Teach<br />
 							Carpentry/Finish Work<br />
-							Facebook App IQ score of 165
 						</span><br /><br />
-						<span class="question"><strong>Q:</strong>Family?</span><br />
-						<span class="answer"><strong>A:</strong>
-							1 Wife & 2 Boys
+						<span class="question">Why Andi!  That is a lovely family in the pictures!</span><br />
+						<span class="answer">
+							They are amazing, aren't they?!  Unfortunately this picture is outdated as I now have 3 kids (all boys) and my oldest is now 9.
 						</span><br /><br />
-						<span class="question"><strong>Q:</strong>Hobbies?</span><br />
-						<span class="answer"><strong>A:</strong>
-							jQuery Plugin writing<br />
-							Carpentry<br />
-							Cooking with my Wife<br />
-							Eating My Wife's Cooking
+						<span class="question">Do I have any Hobbies?</span><br />
+						<span class="answer">
+						    If and when I have any freetime, I enjoy:
+                            CrossFit<br>
+							Cooking<br>
+                            Eating<br>
+							Family trips to Costco!
 						</span><br /><br />
 					</p>
 				</div>
@@ -60,31 +59,31 @@
 					<li>
 						<h3>Javascript Application<br />Form Editor</h3>
 						<a class="iframe" href="formsUI.html"><img src="images/formsui-thumbnail.jpg" /></a>
-						
-					</li>	
+
+					</li>
 					<li>
 						<h3>Website</h3>
 						<a class="iframe" href="http://www.ibewsjcu.org"><img src="images/port-image-6.jpg" /></a>
-					</li>	
+					</li>
 					<li>
 						<h3>jQuery Plugin</h3>
-						<a class="iframe" href="polaroid.html"><img src="images/port-image-7.jpg" /></a>						
-					</li>								
+						<a class="iframe" href="polaroid.html"><img src="images/port-image-7.jpg" /></a>
+					</li>
 					<li>
 						<h3>jQuery Plugin<h3>
 						<a class="iframe" href="zoom-it.html"><img src="images/port-image-2.jpg" /></a>
-						
+
 					</li>
-					<li>
+					<!--<li>
 						<h3>Website Mockup</h3>
 						<a class="iframe" href="http://www.frecklesinc.com"><img src="images/port-image-4.jpg" /></a>
-						
-					</li>		
+
+					</li>
 					<li>
 						<h3>Old Portfolio Site<h3>
 						<a class="iframe" href="portfoliopages/portfolio3/"><img src="images/port-image-1.jpg" /></a>
-						
-					</li>
+
+					</li>-->
 				</ul>
 			</div>
 			<script>$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});</script>
@@ -93,7 +92,7 @@
 					<h2>Portfolio</h2>
 					<div>
 						<p>
-							This section is being actively worked on.<br /> The most recent entry is the FormsUI form drag and drop editor that I am currently working on.  I am %80 pecent complete on the client side and %50 percent complete on the server side.<br /> Client side languages: 80% Vanilla Javascript and 20% jQuery.<br /><br />To view the code on any of these, right click and "View Framesource" for each pop-up.
+							Some very old and outdated (10yrs or so) examples of my early work in JS and FE design/coding.  Newer examples on their way!!
 						</p>
 					</div>
 				</div>
@@ -112,6 +111,6 @@
 					<p> Contact form available shortly.  Please feel free to email me at <a href="mailto:andiruda@gmail.com">andiruda@gmail.com</a></p>
 			</div>
 		</section>
-	
-		
+
+
 <?php  include 'includes/footer.inc'; ?>
