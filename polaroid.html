@@ -1,0 +1,53 @@
+<html>
+<head>
+	<!-- jQuery Call -->	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+	<!-- Polaroid -->
+  <script type="text/javascript" src="js/polaroid/polaroid.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/polaroid/polaroid.css" media="screen" />
+
+	<script>
+	$(window).load(function(){
+		$('.pol2').polaroid({style:'style2',combined:false});
+		$('.pol1').polaroid({style:'style1',combined:false});
+	});
+	</script>
+</head>
+<body>
+<h2>Polaroid Image Plugin</h2>
+	<div class="block">
+		<h3>Background:</h3>
+<span class="right"><img class="pol1" src="images/polimages/3small.jpg" title="Rachel about to pop with our first son Isaac." /><div class="clearall"></div></span>		
+        <p>One of the website I was working on request a "Meet the Staff" page.  I had seen a really cool looking polaroid effect that you could do in photoshop.  Not wanting to have to edit each of their photo's for obvious reasons, I went in quest of a jQuery plugin that would convert any photo into a polaroid image for me.  To my suprise I was unable to find a light, client-side script-driven application to suit the need.  That is when I decided to write it myself.</p><br />
+		<p><em>I began..</em><br />Like most well planned projects, I started with a bit of research and planning.  After a little time, I new what I was going for, all I needed was the how.</p><br />
+		<span class="left"><img class="pol1" src="images/polimages/5small.jpg" title="Isaac at 3 months with his mommy!" /></span>
+        <p><em>Why choose jQuery?</em><br />I decided on jQuery for a number of reasons.  Not the least of which, that I am comfortable with it, and love the powerful utility functions it offers.  It is not entirely jQuery driven however, I have decided to keep control of the animation in CSS3. </p><br />
+		<em>Problems</em><br />
+		I encountered many hiccups along the way.  One particularly difficult spot came when writing the <strong>re-sizing algorithm</strong> for the images.<br />
+		<blockquote>
+
+			<h3>EXAMPLE:</h3><br />
+			<em>height(h), width(w)</em><br /><br />
+			<span class="flowChart">Condition 1 <em>h</em> <strong>></strong> <em>w</em></span>
+			<span class="flowChart">Condition 2 <em>h</em> <strong><</strong> <em>w</em></span>
+			<span class="flowChart">Condition 2 <em>h</em> <strong>=</strong> <em>w</em></span>
+		</blockquote>	
+			
+		<h3>Explaination:</h3>
+		<span class="right"><img class="pol2" src="images/polimages/4small.jpg" /></span>
+		<span class="left"><img class="pol2" src="images/polimages/2small.jpg" /></span>
+		
+
+        <div class="clearall"></div>
+	</div>
+	<div class="block">
+    	
+        <p>This is the style2 version.</p>
+        <div class="clearall"></div>
+	</div>
+
+<div class="clearall"></div>
+<div style="height:150px;width:100%">&nbsp;</div>
+</body>
+</html>

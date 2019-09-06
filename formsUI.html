@@ -1,0 +1,818 @@
+<html style="margin:0px;padding:0px;">
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script> -->
+
+<script src="js/formBuilder.js" type="text/javascript"></script>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:700,700italic|Roboto:900' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="css/formsUI.css" media="screen/print" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+
+
+<script type="text/javascript">
+	$(function(){
+		$('.section a').css({"opacity" : 1})
+			.mouseover(function(){
+				$(this).stop().animate({"opacity" : 0}, 500)
+			})
+			.mouseout(function(){
+				$(this).stop().animate({"opacity" : 1}, 500)
+		})
+	});
+</script>
+<style>
+#content {height:600px;}
+#buttons div.btn {float:left;display:inline;width:395px;margin:15px;}
+
+#Sections {
+	width:100%;
+
+	text-align:center;
+	height:63px;
+	background-color: #f8f8f0;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+}
+#Sections .section {
+	float:left;
+	margin:10px 5%;
+}
+#Sections .section, #Sections .section a { 
+	background:url(/images/formsUI/formsUI-header-nav2.png) 0 0;
+}
+#Sections .section a {
+	display:block;
+	height:42px;
+	width:190px;
+}
+
+#Sections #section1 {background-position:0px -43px;}
+#Sections #section1 a {background-position:0 0;}
+#Sections #section2 {background-position:0 -130px;}
+#Sections #section2 a {background-position:0 -86px;}
+#Sections #section3 {background-position:0 -216px;}
+#Sections #section3 a {background-position:0 -174px;}
+
+#buildForm {
+	box-shadow: inset 1px 1px 15px 0px #ccc;
+	width:70%;
+	height:100%;
+	display:inline-block;
+	float:left;
+}
+
+#objContent {
+	position:absolute;
+	left:117px;
+	height:12px;
+	padding:4px;
+	width:100px;
+	height:15px;
+	background:#f1ae14;
+	bottom:0px;
+	display:block;
+	overflow:hidden;
+	box-shadow:2px 1px 10px 0px #ccc;
+}
+.panelBtns p {
+	margin:0px 0px 15px 0px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bolder;
+}
+
+#objContent textarea {
+	width:100%;
+	height:100%;
+}
+
+#previewForm {
+	position:absolute;
+	right:0px;
+	height:12px;
+	padding:4px;
+	width:100px;
+	height:15px;
+	background:#f1ae14;
+	bottom:0px;
+	display:block;
+	overflow:hidden;
+	box-shadow:2px 1px 10px 0px #ccc;
+}
+
+#toolBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100px;
+	padding:8px;
+	background-color:#7a7a7a;
+}
+#toolBoxContent {position:relative;}
+#toolBoxContent input {width:97px;}
+#toolBoxContent,#toolBoxContent > div {
+	width:97px;
+	background-color:#7a7a7a;
+	top:0px;
+	left:0px;
+}
+#toolBoxContent > div {position:absolute;border-bottom:solid 4px #000;}
+
+#toolBoxTitle {text-align:center;margin:0px;padding-bottom:10px;border-bottom:dotted 3px #000;}
+
+#toolBoxContent #addField div {border-bottom:dotted 1px #000;margin:8px 0;padding:8px 0;cursor:hand;}
+#toolBoxContent #addField div:hover {background-color:#c1c1bf;}
+
+#fbNav {padding: 0px; margin: 0px;}
+#fbNav li {margin-left:2px; display:inline-block;height:18px;}
+div.SmartBox {
+	
+	padding:0px;
+	border: solid 2px #c2c2c2;
+	border-radius: 3px;
+	position: relative;
+	margin: 10px;
+	cursor:hand;
+}
+div.SmartBox > * {margin:10px;}
+div.SmartBox:hover {background-color:#f8f8f0;}
+.SmartBox.selected {border-color:red;}
+
+.sbControls {position: absolute;right: 5px;top: 5px;padding:6px;z-index:999;}
+.sbControls span {padding: 5px;color: #c2c2c2;margin-left:6px;}
+.sbControls	span:hover {border-color:red;cursor:pointer;color:red;}
+
+
+/* div.SmartBox textarea {width:350px;height:35px;} */
+
+/*draggable/droppable*/
+div.ui-widget-header {
+	padding:5px;
+	background:rgba(241, 174, 20,.75);
+}
+
+.ui-state-highlight {height:80px;}
+.sb-active {border-color:rgb(241, 174, 20)!important;}
+div.newFld div.subFld {
+	margin-left:15px!important;
+	font-size:12px;
+	border-bottom:none!important;
+}
+.ui-txt-editing:focus, .uiTxtEditing:focus{
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+	background:transparent;
+	border-radius:5px;
+	width:70px;
+	color:#fff;
+}
+.ui-txt-editing, .uiTxtEditing {
+ -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+
+}
+.editableFld {
+	display:inline-block;
+	border:dotted 1px #000;
+	padding:5px;
+}
+.editableFld:hover {
+	border-color:rgb(241, 174, 20);
+}
+#guide {
+	height:100%;
+	float:right;
+	display:inline-block;
+	width:30%;
+	text-align:center;
+	background: rgb(254,191,1);
+	background: -moz-linear-gradient(left,  rgba(254,191,1,1) 0%, rgba(254,191,1,1) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(254,191,1,1)), color-stop(100%,rgba(254,191,1,1)));
+	background: -webkit-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: -o-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: linear-gradient(to right,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febf01', endColorstr='#febf01',GradientType=1 );
+
+}
+
+.dropsHelper-focused {
+
+}
+.dropsHelper-blurred {
+	opacity:0.2;
+	filter:alpha(opacity=20); /* For IE8 and earlier */
+}
+.sbProps {
+	display:none;
+	min-height:50px;
+	background:#000;
+	padding:5px;
+	position:absolute;
+	top:4px;
+	right:37px;
+	color:#fff;
+	border-radius:5px;
+	z-index:999;
+}
+
+.sb-props-expanded .sbProps {display:block;}
+.propsLabel {
+	margin-left:15px;
+	font-weight:bold;
+	width:90px;
+	display:inline-block;
+}
+.sb-item-remove {
+	font-size:8px;
+	color:red;
+}
+.SmartBox h3 {
+	margin:2px;
+	font-size:12px;
+}
+.editableFld.formp {display:block;}
+
+.show-props {display:block;}
+
+
+</style>
+
+</head>
+<body style="background:url(/images/formsUI/bg-repeat.jpg) repeat-y -100px 0 #fff;margin:0px;padding:0px;padding-left:116px;">
+
+<!-- Tool Box -->
+<div id="toolBox">
+	<h3 id="toolBoxTitle"><img src="/images/formsUI/add-field.png" width="100" /></h3>
+		
+	<div id="toolBoxContent">
+		<div id="addField" style="z-index:6;">
+			<h3>Fields</h3>
+			<div class="newFld tbDrags" id="tbparagraph" helper="Paragraph" tag="p">Text<br /></div>
+			<div class="newFld tbDrags" id="tbinput" helper="Input" tag="input">Text Field<br /></div>
+			<div class="newFld tbDrags" id="tbtextarea" helper="Textarea" tag="textarea">Text Box<br /></div>
+			<div class="newFld tbDrags" id="tbselect" helper="Select" tag="select">Drop Down<br /></div>
+			<div class="subFld tbDrags" id="tboption" helper="Option" tag="option">Drop Down Item<br /></div>
+			<div class="newFld subFld tbDrags" id="tbradio" helper="Radio Button" tag="input" input_type="radio">Radio Button<br /></div>
+			<div class="newFld tbDrags" id="tbcheckbox" helper="Check Box" tag="input" input_type="checkbox">Checkbox<br /></div>
+			<div class="newFld tbDrags" id="tbbtnclear" helper="Clear Button" tag="button" input_type="reset">Clear Button<br /></div>
+			<h3>Attributes</h3>
+			<div class="subFld tbDrags" id="tbrequired" helper="Required" tag="required">Required<br /></div>
+		</div>
+		<div id="editField">
+			<form name="setField"></form>		
+		</div>
+		<div id="editForm">
+			<form name="setForm" onkeyup="updateFormObj('form');">
+				<label>Name</lable><br /><input name="formNameAtr" /><br />
+				<label>ID</lable><br /><input name="formId" /><br />
+				<label>Form Name (attr)</lable><br /><input name="formNameAttr" /><br />
+				<label>Fields Container (type)</lable><br /><input name="fieldsContainer" /><br />
+				<label>Fields Container ID</lable><br /><input name="fieldsContainerId" /><br />
+				<input type="hidden" name="formAction" /><br />
+				<input type="hidden" name="formType" /><br />
+				<input type="hidden" name="formName" /><br />
+			</form>
+		</div>
+	</div>
+	<div class="clearall"></div>
+</div>
+<!-- Tool Box End -->
+
+<!-- Sections Begin -->
+<!-- add fields form settings, publish -->
+<div id="Sections">
+	<div class="section" id="section1" onclick="displayToolBox('addField','/images/formsUI/add-field.png')"><a></a></div>
+	<div class="section" id="section2" onclick="displayToolBox('editField','/images/formsUI/edit-field.png')"><a></a></div>
+	<div class="section" id="section3" onclick="displayToolBox('editForm','/images/formsUI/edit-form.png')"><a></a></div>
+</div>
+<!-- Sections End -->
+
+<!-- Panes -->
+<div id="buildForm"></div> <!-- ondrop="drop(event)" ondragover="allowDrop(event)">-->
+
+<!-- <div id="guide"><img src="/images/formsUI/guide-add-field.png"</div> -->
+
+<div class="clearall"></div>
+
+<div id="objContent" class="panelBtns">
+	<p id="showObj">SHOW OBJECT</p>
+	<textarea>{}</textarea>
+</div>
+<div id="previewForm" class="panelBtns preview">
+	<p id="showObj">PREVIEW FORM</p>
+	<div id="ct"></div>
+</div>
+
+<script>
+$(window).load(function(){
+	
+	//Build Preview
+	$(".panelBtns").each(function(){
+		showhide($(this));
+	});	
+});
+
+
+
+//Variable Declarations
+var form = {};
+form.fields= {};
+var dragSrcEl = null;
+
+//COMMONLY USED JQ Seclectors
+var dboard = "#buildForm";
+var smartbox = ".SmartBox";
+var controls = ".sbControls";
+var sbEdtFld = ".editableFld";
+var count = function(){
+	switch(Object.prototype.toString.call(this)){
+		case "[object Object]":
+			return this.size();
+			break;
+		case "[object Array]":
+			return this.length;
+			break;
+	}
+}
+
+//+++++++++++++++++++
+//+++++BINDINGS++++++
+//+++++++++++++++++++
+
+$("body")
+	.delegate(smartbox,"click",function(){ $(this).trigger("hightlight");$(".ui-txt-editing").trigger("blur"); })
+	.delegate(smartbox,"removeSB",function(){ $(this).remove(); })
+	.delegate(smartbox,"hightlight",function(){ $(this).addClass("sb-active").siblings().removeClass("sb-active"); })
+	.delegate(smartbox,"dropHelper",function(event,$this) {
+		var $thisattr = $this.attr("input_type")||$this.attr("tag");
+		$(smartbox).each(function(){
+			var fldsAry = $(this).data("dropsHelper");
+			if(fldsAry.indexOf($thisattr) >=0) $(this).addClass("dropsHelper-focused"); 
+			else{	$(this).addClass("dropsHelper-blurred").droppable({disabled:true});	}
+		}); 
+	})
+	.delegate(controls,"click",function(e){
+		switch($(e.target).attr("class")){
+			case "sb-expand":
+				var $sb = $(e.target).parents(smartbox);
+				
+				$sb.children(".sbProps").toggleClass("show-props");
+				break;
+			case "sb-close":
+				
+				$(this).parents(smartbox).trigger("removeSB"); 
+				break;
+		}
+	})
+	.delegate(".sb-item-remove","click",function(e){
+		//Remove sb item from sb.data() and sb.html()
+		var $i = $(e.target.parentNode);
+		var rel = $i.children(sbEdtFld).attr("rel");
+		var fldUid = $i.children(sbEdtFld).attr("flduid");
+		var $sb = $i.parents(smartbox);
+		var fldObj = $sb.data("fld")[$sb.data("uid")];
+		$.each(fldObj[rel],function(ind){
+			if(this.uid == fldUid) fldObj[rel].splice(ind,1);
+		});
+		sbRefresh.call($sb);
+	})
+	.delegate(sbEdtFld,"click",function(event){
+		
+		//Store the current Dom Element in smartbox.Data()
+		$(event.target).parents(smartbox).data("currentEdit",event.target);		
+
+		var newHTML = createHTML({tag:"input",attr:{class:"editText uiTxtEditing","value":$(event.target).text()}}).replace("\n","").replace("\n","").replace("\n","").replace("\n","");
+		//Convert Element to an input field and load the text as the value
+		$(event.target).replaceWith(newHTML)
+		$(".editText.uiTxtEditing").focus();
+		
+	})
+	.delegate(".editText.uiTxtEditing","blur",function(event){
+		$(this).parents(smartbox)
+			.data("currentEdit").newVal = $(event.target).val();
+		$(this).parents(smartbox)
+			.html(sbRefresh.call($(this).parents(smartbox)));
+	})
+	.delegate("*","mouseup",function(event){
+		var $tar = $(event.target);
+		if(!$tar.hasClass("uiTxtEditing")) $(".uiTxtEditing").trigger("blur");
+/*
+		if(!$tar.hasClass("sb-expand") && !$tar.parent().hasClass("sb-items-container") && !$tar.hasClass("sb-items-container")) {
+			$(".sbProps").toggleClass("show-props");
+		}
+*/
+});
+
+
+//++++++++++++++++++++++++
+//+++++jQuery Mothods+++++
+//++++++++++++++++++++++++
+
+$(".tbDrags")
+	.draggable({
+		revert:"invalid", 
+		cursor: "move",
+		cursorAt: { top: -5, left: -5 },
+		helper: function(event) {
+			return $("<div class='ui-widget-header'>"+$(this).attr("helper")+"</div>");
+		},
+		start: function(event,ui){
+			$(smartbox).trigger("dropHelper",[$(this)]);
+		},
+		stop:function(){
+			$(smartbox).removeClass("dropsHelper-blurred").removeClass("dropsHelper-focused").droppable({disabled:false});
+		}
+	});
+
+$("#buildForm")
+	.droppable({
+		greedy:true,
+		accept:".newFld",
+		drop:function(event,ui){
+			var hasCl = $(event.srcElement).hasClass("SmartBox");
+			var hasSb	=	$(event.srcElement).parents(".SmartBox").size();
+			if(!hasCl){
+				if(hasSb==0){
+					var $this = $(this);
+					var drg = $(ui.draggable);
+					CreateSmartBox(drg.attr("tag"),drg.attr("input_type"));
+				}
+			}else if(hasSb==0){
+				if(!hasCl){
+					var $this = $(this);
+					var drg = $(ui.draggable);
+					CreateSmartBox(drg.attr("tag"),drg.attr("input_type"));
+				}
+			}
+		}	
+	})
+	.sortable({placeholder:"ui-state-highlight",revert:300,axis:"y",distance: 5})
+	.disableSelection();
+
+//++++++++++++++++++++++
+//+++++ Functions ++++++
+//++++++++++++++++++++++
+
+function sbRefresh(){
+	//Update the Obj and Refresh the SmartBox HTML
+
+	var dat = this.data("fld")[this.data("uid")];
+	var newVal = this.data("currentEdit").newVal;
+	var rel = $(this.data("currentEdit")).attr("rel");
+	var sbUid = $(this.data("currentEdit")).attr("sb-uid");
+	var fldUid = $(this.data("currentEdit")).attr("flduid");
+	switch(rel){
+		case "label":
+			dat.label = newVal;
+			break;
+		case "attr":			
+			var attr = $(this.data("currentEdit")).attr("attr");			
+			dat.attr[attr] = newVal;
+			break;
+		case "subFlds":
+			for(vs=0;vs<dat.subFlds.length;vs++){ 
+				if(dat.subFlds[vs].uid == fldUid) dat.subFlds[vs].content = newVal;
+			}
+			break;
+	}
+
+	var content = this.data("content")(this.data());
+
+	this.html(content);
+
+}
+
+function CreateSmartBox(tag, input_type){
+	sb = {};
+	sb.fld = {};
+	sb.tag = "div";
+	
+	sb.uid = tag+count.call($(smartbox).has(tag));
+	sb.currentEdit=""
+	sb.attr = {
+		class:"SmartBox"
+	}
+	//Drops Helper Does highlighting while dropping fields into the formbuilder
+	sb.dropsHelper=["actions"];
+	switch(tag){
+		case "select":
+			sb.dropsHelper.push("option");
+			break;
+		case "input":
+			switch(input_type){
+				case "checkbox":
+					break;
+				case "radio":
+					sb.dropsHelper.push("radio");
+					break;
+			}
+			break;
+	}
+	sb.fld = createFldObj({tag:tag,input_type:input_type,uid:sb.uid});
+	sb.content = function(sb){
+			var sbContent = []
+			sbContent.push(createHTML(sb.fld[sb.uid]));
+			sbContent.push(createHTML({
+				tag:"div",
+				attr:{class:"sbProps"},						
+				content:function(){
+					var fldObj = sb.fld[sb.uid];
+					var itmsAry = [];
+					
+					for(akey in fldObj){
+
+						//For SubFields
+						if(Object.prototype.toString.call(fldObj[akey]) == "[object Array]"){ 
+							itmsAry.push("<div class='sb-Sub-items-container'><h3>Fields</h3>");
+							for(xkey=0;xkey<fldObj[akey].length;xkey++){
+								itmsAry.push("<div class='sb-sub-item'>");
+								itmsAry.push(createHTML({
+									tag:"span",
+									attr:{class:"propsLabel"},
+									content:xkey
+								}));
+								itmsAry.push(createHTML({
+									tag:"span",
+									attr:{class:"editableFld",rel:akey,flduid:fldObj[akey][xkey].uid},
+									content:fldObj[akey][xkey].content,
+									uid:sb.uid
+								}));								
+								itmsAry.push(createHTML({
+									tag:"span",
+									content:"remove",
+									attr:{class:"sb-item-remove"}
+								}));
+								itmsAry.push("</div><br />");
+							}
+							itmsAry.push("</div>");
+						//For Attr
+						}else if(Object.prototype.toString.call(fldObj[akey]) == "[object Object]"){
+							itmsAry.push("<div class='sb-items-container'><h3>Properties</h3>");
+							for(xkey in fldObj[akey]){
+								itmsAry.push(createHTML({tag:"span",attr:{class:"propsLabel"},content:xkey}) + createHTML({tag:"span",attr:{class:"editableFld",rel:akey,flduid:fldObj.uid,attr:xkey},content:fldObj[akey][xkey],uid:sb.uid}));
+								itmsAry.push("<br />");
+							}
+							itmsAry.push("</div>");
+						}
+					}
+					itmsAry.push("</div");
+					return itmsAry.join("\r\n")
+				}
+			})
+			);		
+			sbContent.push(createHTML({		
+				tag:"div",
+				content:createHTML({
+					tag:"span",
+					content:"&#9776",
+					attr:{style:"text-decoration:line-through,overline,underline",class:"sb-expand"}
+				})
+				+createHTML({
+					tag:"span",
+					content:"X",
+					attr:{class:"sb-close"}
+				}),
+				attr:{class:"sbControls"}
+				})
+			);
+			
+			return(sbContent.join("\r\n"));
+		}
+		$(createHTML(sb))
+			.appendTo($("#buildForm"))
+			.droppable({
+					greedy:true,
+					accept:".subFld",
+					drop:function(event,ui){
+						var $this = $(event.target);
+						var drg = ui.draggable;
+						var tag = drg.attr("input_type")||drg.attr("tag");
+				
+						
+						//Add to the Field Section
+						switch(tag){
+							case "radio":
+								var uid = tag + count.call($this.data("fld")[$this.data("uid")].subFlds);
+								var subFld = createFldObj({tag:drg.attr("tag"),input_type:drg.attr("input_type"),uid:uid,subFld:true});
+								var fldObjContent = $this.data("fld")[$this.data("uid")].content;				
+								subFld[uid].label="";
+								$this.data("fld")[$this.data("uid")].subFlds.push(subFld[uid]);									
+								break;
+							case "option":
+								var uid = tag + count.call($this.data("fld")[$this.data("uid")].subFlds);
+								var subFld = createFldObj({tag:drg.attr("tag"),input_type:drg.attr("input_type"),uid:uid});
+								$this.data("fld")[$this.data("uid")].subFlds.push(subFld[uid]);		
+								break;
+						}
+						
+						sbRefresh.call($this);										
+					}	
+				})
+				.data(sb);
+
+	//sbRefresh.call(sb);
+				return sb;
+}
+
+function createFldObj(params){
+	var tag = params.tag||"paragraph";
+	var uid = params.uid;
+
+	var input_type = params.input_type || "text";	
+	var fld = {};
+	
+	fld[uid] = {
+		tag:tag,
+		label:tag,
+		content:"",
+		attr:{},
+		uid:uid
+	}
+	switch(tag){
+		case "p":
+			fld[uid].label = "";
+			fld[uid].attr= {
+				id:"",
+				class:"editableFld formp",
+				width:"50px",
+				height:"20px",
+				style:""
+			};
+			fld[uid].content=tag;
+			
+			break;
+		case "select":
+			fld[uid].attr={
+				id:""
+			};
+			fld[uid].subFlds=[];
+			break;
+		case "option":
+			fld[uid].content=uid;
+			fld[uid].label="";			
+			break;
+		case "textarea":
+			fld[uid].attr={
+				id:"",
+				rows:"8",
+				cols:"30",
+				placeholder:""
+			}				
+			break;
+		case "input":
+			switch(input_type){
+				case "text":	
+					fld[uid].attr={
+						id:"",
+						maxlength:"15",
+						placeholder:uid
+					}
+					break;
+				case "radio":
+					if(params.subFld){
+						fld[uid].label="";
+						fld[uid].tag="input";
+						fld[uid].content=uid;
+						fld[uid].attr={
+							type:"radio"
+						}
+					}else{
+						fld[uid].tag="div";
+						fld[uid].label="Radio Set";
+						fld[uid].subFlds=[];
+						fld[uid].subFlds.push(function(){
+							var result = createFldObj({tag:"input",input_type:"radio",uid:"radio0",subFld:true});	
+							return result.radio0;
+						})
+					}
+					break;
+				case "checkbox":
+					fld[uid].attr={
+						type:"checkbox"
+					}
+					break;
+			}
+			break;
+		case "button":
+			switch(input_type){
+				case "reset":
+					fld[uid].content="Clear Fields";
+					fld[uid].label="";
+					fld[uid].attr = {
+						name:fld[uid].content,
+						class:"frm-clear",
+						id:"frm-clear"
+					};
+				break;
+			}	
+			break;
+	}
+	return fld;
+}
+
+function createHTML(obj){
+	var markup = [];
+	var uid = this.uid || obj.uid ||"";
+	var attrAry = [];
+	
+	for(key in obj.attr){
+		attrAry.push(key.toLowerCase()+"='"+ obj.attr[key] + "'");
+	}
+
+	if(obj.label && obj.label>"") markup.push(createHTML({tag:"label",attr:{class:"editableFld",rel:"label"},content:obj.label,uid:uid}));
+	markup.push("<" + obj.tag.toLowerCase() + " sb-uid='" + uid + "' " + attrAry.join(" ") +">");
+	if(obj.subFlds && obj.subFlds.length > 0){
+		for(v=0;v < obj.subFlds.length;v++){
+			if(typeof obj.subFlds[v]=="function"){
+				obj.subFlds[v] = obj.subFlds[v]();
+			} 	
+			markup.push(createHTML(obj.subFlds[v]));
+		}
+	}else{
+		if(typeof obj.content == "function"){ 
+			markup.push(obj.content(obj));
+		}else{
+			markup.push(obj.content);
+		}
+	}
+	markup.push("</" + obj.tag.toLowerCase() + ">");
+
+	return markup.join("\r\n");
+}
+
+function buildFormObj(){
+	var form = {
+		fields:{},
+		formType:"custom",
+		formName:"custom",
+		formId:"custom",
+		formNameAtr:"custom",
+		formAction:"/--xxFormHandler",
+		fieldsContainer:"div",
+		fieldsContainerId:"customFields"
+	}
+	$(smartbox).each(function(){
+		var field = $(this).data("uid")
+		form.fields[field] = $(this).data("fld")[field];
+	});
+	$('#objContent textarea').html(JSON.stringify(form));
+	return JSON.stringify(form);
+}
+
+function showhide($obj){
+	var obj = $obj
+	obj.mouseleave(function(){
+		if($(this).width() == 600){
+			$(this).stop().animate({height:"15px",width:"100px"},400);
+		}
+	}).click(function(){
+		$(this).stop().animate({height:"600px",width:"600px"},400);
+		var form=buildFormObj()
+		if($(this).hasClass('preview')) $('#ct').formBuilder(JSON.parse(form));
+	});
+}
+
+/*++++++ OLD FUNCTIONS ++++++*/
+
+
+
+
+function displayToolBox(option,icon){
+	var frm = $('#'+option);
+	$('#toolBoxTitle img').fadeOut(function(){$(this).attr("src",icon);}).fadeIn();
+	frm.siblings().slideUp(function(){frm.slideDown();});
+	
+}
+/*
+function updateToolBoxField(id) {
+	fld = form.fields[id]
+}
+
+function updateFormObj(req,content){
+	switch(req){
+		case "field":
+			buildFieldObj.call(form.fields);
+			break;
+		case "form":
+			buildFormObj.call(form);
+			break;
+	}
+	$('#objContent textarea').html(JSON.stringify(form));
+}
+*/
+
+
+</script>
+</body>
+</html>

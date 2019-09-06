@@ -1,0 +1,221 @@
+#content {height:600px;}
+#buttons div.btn {float:left;display:inline;width:395px;margin:15px;}
+
+#Sections {
+	width:100%;
+
+	text-align:center;
+	height:63px;
+	background-color: #f8f8f0;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+}
+#Sections .section {
+	float:left;
+	margin:10px 5%;
+}
+#Sections .section, #Sections .section a { 
+	background:url(/images/formsUI/formsUI-header-nav2.png) 0 0;
+}
+#Sections .section a {
+	display:block;
+	height:42px;
+	width:190px;
+}
+
+#Sections #section1 {background-position:0px -43px;}
+#Sections #section1 a {background-position:0 0;}
+#Sections #section2 {background-position:0 -130px;}
+#Sections #section2 a {background-position:0 -86px;}
+#Sections #section3 {background-position:0 -216px;}
+#Sections #section3 a {background-position:0 -174px;}
+
+#buildForm {
+	box-shadow: inset 1px 1px 15px 0px #ccc;
+	width:70%;
+	height:100%;
+	display:inline-block;
+	float:left;
+}
+
+#objContent {
+	position:absolute;
+	left:117px;
+	height:12px;
+	padding:4px;
+	width:100px;
+	height:15px;
+	background:#f1ae14;
+	bottom:0px;
+	display:block;
+	overflow:hidden;
+	box-shadow:2px 1px 10px 0px #ccc;
+}
+.panelBtns p {
+	margin:0px 0px 15px 0px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bolder;
+}
+
+#objContent textarea {
+	width:100%;
+	height:100%;
+}
+
+#previewForm {
+	position:absolute;
+	right:0px;
+	height:12px;
+	padding:4px;
+	width:100px;
+	height:15px;
+	background:#f1ae14;
+	bottom:0px;
+	display:block;
+	overflow:hidden;
+	box-shadow:2px 1px 10px 0px #ccc;
+}
+
+#toolBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100px;
+	padding:8px;
+	background-color:#7a7a7a;
+}
+#toolBoxContent {position:relative;}
+#toolBoxContent input {width:97px;}
+#toolBoxContent,#toolBoxContent > div {
+	width:97px;
+	background-color:#7a7a7a;
+	top:0px;
+	left:0px;
+}
+#toolBoxContent > div {position:absolute;border-bottom:solid 4px #000;}
+
+#toolBoxTitle {text-align:center;margin:0px;padding-bottom:10px;border-bottom:dotted 3px #000;}
+
+#toolBoxContent #addField div {border-bottom:dotted 1px #000;margin:8px 0;padding:8px 0;cursor:hand;}
+#toolBoxContent #addField div:hover {background-color:#c1c1bf;}
+
+#fbNav {padding: 0px; margin: 0px;}
+#fbNav li {margin-left:2px; display:inline-block;height:18px;}
+div.SmartBox {
+	
+	padding:0px;
+	border: solid 2px #c2c2c2;
+	border-radius: 3px;
+	position: relative;
+	margin: 10px;
+	cursor:hand;
+}
+div.SmartBox > * {margin:10px;}
+div.SmartBox:hover {background-color:#f8f8f0;}
+.SmartBox.selected {border-color:red;}
+
+.sbControls {position: absolute;right: 5px;top: 5px;padding:6px;z-index:999;}
+.sbControls span {padding: 5px;color: #c2c2c2;margin-left:6px;}
+.sbControls	span:hover {border-color:red;cursor:pointer;color:red;}
+
+
+/* div.SmartBox textarea {width:350px;height:35px;} */
+
+/*draggable/droppable*/
+div.ui-widget-header {
+	padding:5px;
+	background:rgba(241, 174, 20,.75);
+}
+
+.ui-state-highlight {height:80px;}
+.sb-active {border-color:rgb(241, 174, 20)!important;}
+div.newFld div.subFld {
+	margin-left:15px!important;
+	font-size:12px;
+	border-bottom:none!important;
+}
+.ui-txt-editing:focus, .uiTxtEditing:focus{
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+	background:transparent;
+	border-radius:5px;
+	width:70px;
+	color:#fff;
+}
+.ui-txt-editing, .uiTxtEditing {
+ -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+
+}
+.editableFld {
+	display:inline-block;
+	border:dotted 1px #000;
+	padding:5px;
+}
+.editableFld:hover {
+	border-color:rgb(241, 174, 20);
+}
+#guide {
+	height:100%;
+	float:right;
+	display:inline-block;
+	width:30%;
+	text-align:center;
+	background: rgb(254,191,1);
+	background: -moz-linear-gradient(left,  rgba(254,191,1,1) 0%, rgba(254,191,1,1) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(254,191,1,1)), color-stop(100%,rgba(254,191,1,1)));
+	background: -webkit-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: -o-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	background: linear-gradient(to right,  rgba(254,191,1,1) 0%,rgba(254,191,1,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febf01', endColorstr='#febf01',GradientType=1 );
+
+}
+
+.dropsHelper-focused {
+
+}
+.dropsHelper-blurred {
+	opacity:0.2;
+	filter:alpha(opacity=20); /* For IE8 and earlier */
+}
+.sbProps {
+	display:none;
+	min-height:50px;
+	background:#000;
+	padding:5px;
+	position:absolute;
+	top:4px;
+	right:37px;
+	color:#fff;
+	border-radius:5px;
+	z-index:999;
+}
+
+.sb-props-expanded .sbProps {display:block;}
+.propsLabel {
+	margin-left:15px;
+	font-weight:bold;
+	width:90px;
+	display:inline-block;
+}
+.sb-item-remove {
+	font-size:8px;
+	color:red;
+}
+.SmartBox h3 {
+	margin:2px;
+	font-size:12px;
+}
+.editableFld.formp {display:block;}
+
+.show-props {display:block;}
+

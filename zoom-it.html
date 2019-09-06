@@ -1,0 +1,95 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<style>
+
+#form1 {
+	position:absolute;
+	width:15px;
+	height:20px;  
+	text-align:right;
+	color:#fff;
+	z-index:999;
+	background-color:rgba(0,0,0,.85);
+	padding:15px;
+	overflow:hidden;
+	border-radius:0 0 5px 0;
+	}
+.sbmtBtn {display:inline-block;padding:5px 8px;background-color:#fff;border-radius:2px;color:#000;cursor:pointer;}
+#formExpand {cursor:pointer;}
+#form1 strong {color:#fff;}
+#form1 input.width, #form1 input.height, #form1 input#magnif {
+	margin: 5px 5px;
+	width:30px;
+	background-color:rgba(256,256,256,.5);
+	color:#fff;
+	padding:3px;
+	border:none;
+	border:solid 1px #CC9900;
+	border-radius:2px;
+	}
+
+	.GridImage {float:left;border:solid 1px #fff;border:radius:2px;box-shadow:3px 3px 15px 5px #000;}
+
+</style>
+<script src="js/zoomIt/zoomIt.js" type="text/javascript"></script> 
+<script type="text/javascript">
+$(window).load(function(){
+	$('#form1').bind('mouseenter',function(){
+		$(this).stop().animate({'width':'130px','height':'375px'},500) 
+	}).bind('mouseleave',function(){
+		$(this).stop().animate({'width':'15px','height':'15px'},500)
+	});
+
+	$('.testImage2').each(function(){
+		$(this).clone().removeClass().addClass('imgOrig').appendTo('body');
+		$('.GridImage').html('');
+		$('.imgOrig').css('display','none');
+		resampleImage();
+	});
+});
+
+//$(document).change(function(){ resampleImage(); });
+
+function resampleImage(){
+	var magnif = $('#magnif').attr('value');
+	var ary = [$('#retW').attr('value'),$('#retH').attr('value'),$('#imgW').attr('value')*magnif,$('#imgH').attr('value')*magnif]
+	$('.GridImage').html('');
+	$('#form1img').clone().appendTo('.GridImage').attr('width',ary[2]).attr('height',ary[3]).spyGlass({width:ary[0],height:ary[1],magnif:magnif});
+
+}
+	
+
+</script>
+
+<style>
+p {
+	border-radius:0 5px;box-shadow:2px 2px 0 1px #000;background:url(images/header-bg.png);color:#333333;margin:5px 0!important;}
+</style>
+
+        <h2>ZoomIt Plugin</h2>
+        <h4>Explaination:</h4>
+        <p>Here I have created a jquery plugin called zoomIt.js  In this plugin I take all images that have the <strong>class</strong> testImage and place them in a JQuery object.  Then I call the <strong>spyGlass()</strong> method on each item in the object.  I pass an object literal with my method containing the following parameters: Reticle Size(width & height).  Please see the below example.</p>
+        <p>When you input new values into the boxes below and "Re-Sample" the image, it reloads the original image into the space below, then re-calls the custom method <strong>zoomIt()</strong> for the image.</p><br /><br />
+        
+        <form id="form1">
+            <div style="display:block;">
+                <span><strong id="formExpand" style="float:left;font-size:18px;color:#fff;margin-bottom:10px;">+</strong><br /><br /><strong>IMAGE:</strong></span><br />
+                <span>Width <input id="imgW" name="imgW" class="width" type="text" maxlength="4" value="700" />px</span><br />
+                <span>Height <input id="imgH" name="imgH" class="height" type="text" value="950" />px</span><br />
+                <span><strong>RETICLE:</strong></span><br />
+                <span>Width <input id="retW" name="retW" class="width" type="text" maxlength="4" value="200" />px</span><br />
+                <span>Height <input id="retH" name="retH" class="height" type="text" value="200" />px</span><br />
+                <span><strong>MAGNIFY:</strong></span><br />
+                <span>x <input id="magnif" name="magnif" type="text" maxlength="1" value="2" /></span><br />
+            
+                <span onclick="return resampleImage();" class="sbmtBtn">Re-Sample</span>
+                <div class="clearall"></div>
+             </div>
+
+        </form>
+                <div class="GridImage">
+		       		<img class="testImage2" id="form1img" src="images/rach-wedding.jpg" />
+                </div>
+                <div class="clearall"></div>
+            </li>
+        </ul>
+

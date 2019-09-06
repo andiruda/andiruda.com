@@ -1,0 +1,10 @@
+<script src="http://hd.demos.dealerspike.net/scripts/zoomIt.js" type="text/javascript"></script> <script type="text/javascript">
+$(window).load(function(){
+	$('.testImage').each(function(){
+		$(this).spyGlass({style:'normal',width:100,height:50});
+	});
+	$('.testImage2').each(function(){
+		$(this).spyGlass({width:200,height:150});
+	});
+});
+</script>
