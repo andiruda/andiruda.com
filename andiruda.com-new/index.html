@@ -50,17 +50,26 @@
     .special-card {
         background-color: rgba(0, 0, 0, .75);
         color: white;
-        /*opacity: .4*/;
+
+
     }
 
-    .special-card strong { color: white; }
-    .special-card p { margin-bottom: 0px; }
+    pre {
+      white-space: pre-wrap;       /* Since CSS 2.1 */
+      white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      font-family: monospace;
+      color: white;
+      font-size: 1rem;
+    }
 
 
     .blinking-cursor {
   font-weight: 100;
-  font-size: 30px;
-  color: #2E3D48;
+  font-size: 1rem;
+  color: white;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
   -ms-animation: 1s blink step-end infinite;
@@ -113,8 +122,9 @@
   }
 }
 
-p.indent-1:before { content: "\00a0 \00a0 \00a0 \00a0 "; }
-p.indent-2:before { content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 "; }
+span.indent-1:before { content: "\00a0 \00a0 \00a0 \00a0 "; }
+span.indent-2:before { content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 "; }
+.special-card span { display: block; }
 
     </style>
     <script src="https://kit.fontawesome.com/b88309c8a4.js" crossorigin="anonymous"></script>
@@ -123,42 +133,44 @@ p.indent-2:before { content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 ";
 <body>
     <div class="container-fluid">
         <div class="row columns">
+
             <div class="col-md-6 text-white bg-dark content-area">
-                <div class="container-fluid text-center title">
-                    <h1 class=""><i class="fab fa-adn"></i> NDI RUDA</h1>
+                <div class="text-center title">
+                    <h1 class="">ANDI RUDA</h1>
                     <p>
-                        Full Stack Developer <i class="fas fa-glass-whiskey"></i>
+                        <i class="fas fa-dragon"></i> Full Stack Developer <i class="fas fa-dragon"></i>
                     </p>
                 </div>
             </div>
+
             <div class="col-md-6 content-area bg">
-                <div class="special-card border-0 shadow my-5">
-                    <div class="card-body p-5">
-                        <p class="lead">class andiRuda {</p>
-                        <p class="lead indent-1">constructor (age: Number) {</p>
-                        <p class="lead indent-2">this.age = age</p>
-                        <p class="lead indent-1">}</p>
-                        <p class="lead">&nbsp;</p>
-                        <p class="lead indent-1">get experience (skill: String) {</p>
-                        <p class="lead indent-2">return yearsExperienceInSkill(skill);</p>
-                        <p class="lead indent-1">}</p>
-                        <p class="lead">&nbsp;</p>
-                        <p class="lead indent-1">get bio () {</p>
-                        <p class="lead indent-2">return getBiography();</p>
-                        <p class="lead indent-1">}</p>
-                        <p class="lead">}</p>
-                        <p class="lead">&nbsp;</p>
-                        <p class="lead">let jedi = new AndiRuda(33);</p>
-                        <p class="lead">let skills = [</p>
-                        <p class="lead indent-1">Javascript, PHP7, Angualr, Node, Express, MySQL, Mongo, Ruby, AWS, React</p>
-                        <p class="lead">]</p>
-                        <p class="lead">&nbsp;</p>
-                        <p class="lead">document.write(jedi.bio);</p>
-                        <p class="lead">for (let x = 0; x < skills.length; x++) {</p>
-                        <p class="lead indent-1">skillsOutput.push(skills[x] + " " + jedi.experience(skills[x]) + "yrs");</p>
-                        <p class="lead">}</p>
-                        <p class="lead">&nbsp;</p>
-                        <p class="lead">document.write(skillsOutput.join(", ");</p>
+                <div class="special-card border-0 shadow my-2">
+                    <div class="card-body p-3">
+<pre>
+class Jedi {
+  constructor (data) {
+    for(let prop in data){
+      this[prop] = data[prop];
+    }
+  }
+}
+
+const AndiRuda = new Jedi({
+  name:   "Andi Ruda",
+  age:    33,
+  loc:    "Bend OR, USA",
+  email:  "andiruda@gmail.com",
+  connect: {
+    linkedin: "https://www.linkedin.com/in/andiruda/",
+    github:   "https://github.com/andiruda"
+  },
+  skills: [
+    "Javascript", "PHP7", "Angualr", "Node", "Express", "MySQL", "Mongo", "Ruby", "AWS", "React"
+  ]
+});
+
+console.log(AndiRuda);
+</pre>
                         <p><span class="blinking-cursor">|</span></p>
 
                     </div>
