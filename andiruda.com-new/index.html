@@ -29,9 +29,9 @@
         height: 100%;
     }
     div.title{
-        position: absolute;
+        margin-top:20px;
         width: 100%;
-        top: 50%;
+
     }
     .bg {
       /* The image used */
@@ -63,6 +63,12 @@
       font-family: monospace;
       color: white;
       font-size: 1rem;
+    }
+
+    pre#output {
+      width: 80%;
+      text-align: left;
+      margin: 0 auto;
     }
 
 
@@ -139,6 +145,29 @@ span.indent-2:before { content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0
                     <h1 class="">ANDI RUDA</h1>
                     <p>
                         <i class="fas fa-dragon"></i> Full Stack Developer <i class="fas fa-dragon"></i>
+                        <hr>
+                        <pre id="output">
+                          <script src="./index.js"></script>
+                          <script>
+                            const attributes = {
+                              name: "Andi Ruda",
+                              born: "Dec 13, 1985",
+                              experience: 10,
+                              gender: "m",
+                              hobbies: ["CrossFit", "sufing", "backpacking", "reading sci-fi", "cooking pancakes"],
+                              skills: ["Javascript", "PHP7", "Angualr", "Node", "Express", "MySQL", "Mongo", "Ruby", "AWS", "React", "HTML", "CSS","Star Wars Trivia", "Tolkien Lore"],
+                              loc:    "Birmingham AL, USA",
+                              connect: {
+                                email:  "andiruda@gmail.com",
+                                linkedin: "https://www.linkedin.com/in/andiruda/",
+                                github:   "https://github.com/andiruda"
+                              }
+                            }
+
+                            let andi = new Ninja(attributes);
+                            document.write("\n" + andi.printBio());
+                          </script>
+                        </pre>
                     </p>
                 </div>
             </div>
@@ -260,6 +289,5 @@ console.log(andi.printBio());
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
 </html>
