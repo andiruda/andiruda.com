@@ -19,7 +19,7 @@ class Person {
     return hobbies[rand];
   }
   printBio () {
-  	return `${this.name} is a ${this.age} years old ${this.constructor.name} that lives in ${this.location}. \n\n${(this.gender === "m") ? "He" : (this.gender === "f") ? "She" : "This person"} enjoys drinking coffee (${this.caffeine.totalCups} total cups / ${this.caffeine.totalMgCaffeine} mg caffeine) as well as ${this.randomHobby(this.hobbies)} and other fun activities.  \n\n${this.name.split(" ")[0]} expresses above average aptitude in the following skills:\n\n\tSkill - Experience Level\n\t==========================\n${this.printSkills()}\n\nYou can connect with ${this.name} on:\n\n\t${this.printConnections()}\n\nOh and by the way... ${this.name.split(" ")[0]} ${(Person.isNinja.call(this)) ? "is a ninja" : "is NOT a ninja"}!`
+  	return `${this.name} is a ${this.age} year-old ${this.constructor.name} that lives in ${this.location}. \n\n${(this.gender === "m") ? "He" : (this.gender === "f") ? "She" : "This person"} enjoys drinking coffee (${this.caffeine.totalCups} total cups / ${this.caffeine.totalMgCaffeine} mg caffeine) as well as ${this.randomHobby(this.hobbies)} and other fun activities.  \n\n${this.name.split(" ")[0]} expresses above average aptitude in the following skills:\n\n\tSkill - Experience Level\n\t==========================\n${this.printSkills()}\n\nYou can connect with ${this.name} on:\n\n\t${this.printConnections()}\n\nOh and by the way... ${this.name.split(" ")[0]} ${(Person.isNinja.call(this)) ? "is a ninja" : "is NOT a ninja"}!`
   }
   static isNinja () {
 		return this instanceof Ninja;
